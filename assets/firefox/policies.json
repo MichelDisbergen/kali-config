@@ -1,0 +1,47 @@
+{
+  "policies": {
+
+    "DisplayBookmarksToolbar": true,
+    "NoDefaultBookmarks": true,
+    "Homepage": {
+      "URL": "https://www.google.com",
+      "Locked": false,
+      "StartPage": "homepage"
+    },
+    "DisableTelemetry": true,
+    "NetworkPrediction": false,
+    "DNSOverHTTPS": {
+      "Enabled": false
+    },
+    "CaptivePortal": false,
+    "FirefoxHome": {
+      "Search": true,
+      "TopSites": true,
+      "Highlights": false,
+      "Pocket": false,
+      "Snippets": false,
+      "Locked": false
+    },
+    "Certificates": {
+      "Install": [
+        "assets/firefox/burp/cacert.der"
+      ]
+    },
+    "Extensions": {
+      "Install": [
+        "https://addons.mozilla.org/firefox/downloads/latest/wappalyzer/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/cookie-editor/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/retire-js/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/securityheaders-io-analyser/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/view-page-archive/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/messpostage/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/shodan-addon/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/uaswitcher/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/simple-modify-header/latest.xpi"
+      ]
+    }
+  }
+}
