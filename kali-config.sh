@@ -82,4 +82,7 @@ fi
 # add ALIAS for the 'killall prldnd' command
 echo "alias click='killall prldnd'" >> ~/.zshrc
 
+# add tmux.conf to current user
+cp assets/tmux/tmux.conf ~/.tmux.conf
+
 
