@@ -20,65 +20,63 @@ for script in /usr/share/doc/python3-impacket/examples/*.py; do
     alias "$(basename $script)"="$script"
 done' >> ~/.zshrc
 
-    echo "[*] Aliases for impacket tools added."
+    echo "[+] Aliases for impacket tools added."
 else
-    echo "[*] Skipping alias addition for impacket tools."
+    echo "[-] Skipping alias addition for impacket tools."
 fi
 
 # FIREFOX
-read -p "Do you want to add custom policies for Firefox? (y/n): " add_policies
+read -p "[*] Do you want to add custom policies for Firefox? (y/n): " add_policies
 if [[ "$add_policies" == "y" ]]; then
     mkdir -p /usr/lib/firefox/distribution
     cp assets/firefox/policies.json /usr/lib/firefox/distribution/policies.json
-    echo "[*] Custom policies for Firefox added."
+    echo "[+] Custom policies for Firefox added."
 else
-    echo "[*] Skipping Firefox policy addition."
+    echo "[-] Skipping Firefox policy addition."
 fi
 
 # DOCKER
-read -p "Do you want to install Docker? (y/n): " install_docker
+read -p "[*] Do you want to install Docker? (y/n): " install_docker
 if [[ "$install_docker" == "y" ]]; then
     apt-get update -y
     apt-get install -y docker.io docker-compose
     systemctl start docker
     systemctl enable docker
 
-    echo "[*] Docker installed and configured."
+    echo "[+] Docker installed and configured."
 
     # install bloodhound-docker
-    read -p "Do you want to add Bloodhound aliases? (y/n): " install_bloodhound
+    read -p "[*] Do you want to add Bloodhound aliases? (y/n): " install_bloodhound
     if [[ "$install_bloodhound" == "y" ]]; then
 
         # create an alias 'bloodhound-ce' for starting the containers command
         echo "alias bloodhound-ce='docker-compose -f $start_pwd/assets/bloodhound/docker-compose.yml up'" >> ~/.zshrc
         echo "alias bloodhound-ce-stop='docker-compose -f $start_pwd/assets/bloodhound/docker-compose.yml stop'" >> ~/.zshrc
         echo "alias bloodhound-ce-reset='docker-compose -f $start_pwd/assets/bloodhound/docker-compose.yml down && docker-compose -f $start_pwd/assets/bloodhound/docker-compose.yml up'" >> ~/.zshrc
-        echo "[*] Added bloodhound-docker aliases."
+        echo "[+] Added bloodhound-docker aliases."
 
     else
-        echo "[*] Skipping BloodHound Docker aliases."
+        echo "[-] Skipping BloodHound Docker aliases."
     fi
-
-
 else
-    echo "[*] Skipping Docker installation."
+    echo "[-] Skipping Docker installation."
 fi
-echo $start_pwd
+
 # RESOURCES
-read -p "Do you want to retrieve all neccessary resources? (y/n): " clone_resources
+read -p "[*] Do you want to retrieve all neccessary resources? (y/n): " clone_resources
 if [[ "$clone_resources" == "y" ]]; then
      mkdir -p /opt/resources
      cp assets/tools/* /opt/resources
-     echo "[*] Resources copied to /opt/resources, now starting to clone..."
+     echo "[+] Resources copied to /opt/resources, now starting to clone..."
 
      # Clone various repositories
      cd /opt/resources
      bash /opt/resources/update-resources.sh
      cd $start_pwd
-     echo "[*] All resources cloned."
+     echo "[+] All resources cloned."
 
 else
-    echo "[*] Skipping resource retrieval."
+    echo "[-] Skipping resource retrieval."
 fi
 
 # add ALIAS for the 'killall prldnd' command
