@@ -26,7 +26,8 @@
       "Install": [
         "/root/kali-config/assets/certs/ca.crt",
         "/root/kali-config/assets/certs/cacert.der"
-      ]
+      ],
+      "ImportEnterpriseRoots": true
     },
     "Extensions": {
       "Install": [

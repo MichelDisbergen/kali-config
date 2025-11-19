@@ -91,6 +91,11 @@ setup_firefox_policies() {
         
         mkdir -p "$policy_dir"
         cp "$policy_source" "$policy_dir/policies.json"
+        # Copy your CA cert to the system trust store
+        sudo cp /root/kali-config/assets/firefox/burp/ca.crt /usr/local/share/ca-certificates/
+
+        # Update the system CA certificates
+        sudo update-ca-certificates
         log_success "Custom policies for Firefox added"
     else
         log_info "Skipping Firefox policy addition"
@@ -220,7 +225,6 @@ main() {
     
     check_root
 
-    setup_firefox_policies
     setup_docker
     setup_required_software
     setup_resources
@@ -228,6 +232,8 @@ main() {
     setup_impacket_aliases
     setup_utility_aliases
     setup_bloodhound_aliases
+    setup_firefox_policies
+
 
     log_success "FINISHED SETUP"
     log_info "Configuration complete. Please restart your terminal or run 'source ~/.zshrc' to apply changes."
