@@ -363,4 +363,4 @@ function add_resources() {
 rm resources_list.csv
 add-to-list "Resource,Link,Description"
 add_resources
-success "Done updating Exegol-resources"
+success "Done updating resources"

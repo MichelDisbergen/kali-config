@@ -24,7 +24,8 @@
     },
     "Certificates": {
       "Install": [
-        "assets/firefox/burp/cacert.der"
+        "/root/kali-config/assets/certs/ca.crt",
+        "/root/kali-config/assets/certs/cacert.der"
       ]
     },
     "Extensions": {

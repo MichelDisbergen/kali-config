@@ -81,7 +81,7 @@ done'
 # Setup Firefox policies
 setup_firefox_policies() {
     if prompt_yes_no "Do you want to add custom policies for Firefox?"; then
-        local policy_dir="/usr/lib/firefox/distribution"
+        local policy_dir="/usr/lib/firefox-esr/distribution"
         local policy_source="assets/firefox/policies.json"
         
         if [[ ! -f "$policy_source" ]]; then
@@ -189,9 +189,15 @@ setup_utility_aliases() {
 
 # Setup required_software
 setup_required_software() {
-    log_info "Installing required software : seclists ..."
-    apt install seclists ligolo-ng sshuttle autorecon curl dnsrecon enum4linux feroxbuster gobuster nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb nikto mssqlpwner -y
-    log_success "Utility aliases added"
+    if prompt_yes_no "Do you want to install required software for: autorecon, pivoting and more?"; then
+        log_info "Installing required software..."
+
+        apt install seclists ligolo-ng sshuttle autorecon curl dnsrecon enum4linux feroxbuster gobuster nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb nikto mssqlpwner bat burpsuite caido -y
+
+        log_success "Required software installed and configured"
+    else
+        log_info "Skipping Docker installation"
+    fi
 }
 
 # Setup tmux configuration
