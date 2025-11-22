@@ -198,6 +198,8 @@ setup_required_software() {
         log_info "Installing required software..."
 
         apt install seclists ligolo-ng sshuttle autorecon curl dnsrecon enum4linux feroxbuster gobuster nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb nikto mssqlpwner bat burpsuite caido faketime rlwrap -y
+        pipx install pywhisker
+        pipx ensurepath
 
         log_success "Required software installed and configured"
     else
