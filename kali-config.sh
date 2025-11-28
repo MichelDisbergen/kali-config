@@ -197,7 +197,7 @@ setup_required_software() {
     if prompt_yes_no "Do you want to install required software for: autorecon, pivoting and more?"; then
         log_info "Installing required software..."
 
-        apt install seclists ligolo-ng sshuttle autorecon curl dnsrecon enum4linux feroxbuster gobuster nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb nikto mssqlpwner bat burpsuite caido faketime rlwrap -y
+        apt install seclists ligolo-ng sshuttle autorecon curl dnsrecon enum4linux feroxbuster gobuster nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb nikto mssqlpwner bat burpsuite caido faketime rdate rlwrap bloodyad -y
         pipx install pywhisker
         pipx ensurepath
 
